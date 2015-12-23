@@ -18,8 +18,9 @@
 	</ctl:function>
 
    <ctl:suite name="tns:ets-owc10-${version}">
-     <ctl:title>Test suite ets-owc10</ctl:title>
-     <ctl:description>Describe scope of testing.</ctl:description>
+     <ctl:title>OWS Context 1.0 Conformance Test Suite</ctl:title>
+     <ctl:description>Checks context documents for conformance against the "OGC OWS 
+     Context Conceptual Model" specification, version 1.0 (OGC 12-080r2).</ctl:description>
      <ctl:starting-test>tns:Main</ctl:starting-test>
    </ctl:suite>
  
@@ -28,7 +29,7 @@
 	  <ctl:code>
         <xsl:variable name="form-data">
            <ctl:form method="POST" width="800" height="600" xmlns="http://www.w3.org/1999/xhtml">
-             <h2>Test suite ets-owc10</h2>
+             <h2>OWS Context 1.0 Conformance Test Suite</h2>
              <div style="background:#F0F8FF" bgcolor="#F0F8FF">
                <p>The implementation under test (IUT) is checked against the following specifications:</p>
                <ul>
@@ -78,7 +79,7 @@
           <entry key="iut">
             <xsl:choose>
               <xsl:when test="empty($iut-file)">
-                <xsl:value-of select="$form-data/values/value[@key='uri']"/>
+                <xsl:value-of select="normalize-space($form-data/values/value[@key='uri'])"/>
               </xsl:when>
               <xsl:otherwise>
                 <xsl:copy-of select="concat('file:///', $iut-file)" />
@@ -115,6 +116,15 @@ Test method <xsl:value-of select="./@name"/>: <xsl:value-of select=".//message"/
 		  </xsl:for-each>
 		  <ctl:fail/>
         </xsl:if>
+        <xsl:if test="xs:integer($test-results/testng-results/@skipped) eq xs:integer($test-results/testng-results/@total)">
+        <ctl:message>All tests were skipped. One or more preconditions were not satisfied.</ctl:message>
+        <xsl:for-each select="$test-results//test-method[@status='FAIL' and @is-config='true']">
+          <ctl:message>
+            <xsl:value-of select="./@name"/>: <xsl:value-of select=".//message"/>
+          </ctl:message>
+        </xsl:for-each>
+        <ctl:skipped />
+      </xsl:if>
 	  </ctl:code>
    </ctl:test>
 

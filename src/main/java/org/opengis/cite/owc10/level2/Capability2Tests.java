@@ -1,5 +1,6 @@
 package org.opengis.cite.owc10.level2;
 
+import org.opengis.cite.owc10.CommonFixture;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -7,17 +8,15 @@ import org.testng.annotations.Test;
 /**
  * Includes various tests of capability 2.
  */
-public class Capability2Tests {
+public class Capability2Tests extends CommonFixture {
 
-    /**
-     * Run conformance level 2 tests only if the generated value exceeds the
-     * threshold value.
+	/**
+     * Run conformance level 2 tests only if the preconditions are satisfied.
      */
     @BeforeTest
-    public void checkThresholdExceeded() {
-        double rnd = Math.random();
-        Assert.assertTrue(rnd > 0.9,
-                "Trigger value does not exceed threshold: " + rnd);
+    public void checkPreconditions() {
+        Assert.assertTrue(2 > 1,
+                "Preconditions for Conformance Level 2 were not satisfied.");
     }
 
     /**

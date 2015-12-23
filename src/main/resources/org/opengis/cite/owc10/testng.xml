@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="${ets-code}-${version}" verbose="0" configfailurepolicy="skip">
+<suite name="${ets-code}-${version}" verbose="0" configfailurepolicy="continue">
   <parameter name="iut"  value=""/>
   <parameter name="ics"  value=""/>
 
   <listeners>
     <listener class-name="org.opengis.cite.owc10.TestRunListener" />
     <listener class-name="org.opengis.cite.owc10.SuiteFixtureListener" />
+    <listener class-name="org.opengis.cite.owc10.TestFailureListener" />
   </listeners>
 
   <test name="Conformance Level 1">
-    <classes>
-      <class name="org.opengis.cite.owc10.level1.Capability1Tests" />
-    </classes>
+    <packages>
+      <package name="org.opengis.cite.owc10.level1" />
+    </packages>
   </test>
   <test name="Conformance Level 2">
-    <classes>
-      <class name="org.opengis.cite.owc10.level2.Capability2Tests" />
-    </classes>
+    <packages>
+      <package name="org.opengis.cite.owc10.level2" />
+    </packages>
   </test>
 </suite>

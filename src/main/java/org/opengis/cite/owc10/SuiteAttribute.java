@@ -1,5 +1,9 @@
 package org.opengis.cite.owc10;
 
+import com.sun.jersey.api.client.Client;
+
+import java.io.File;
+
 import org.w3c.dom.Document;
 
 /**
@@ -10,9 +14,17 @@ import org.w3c.dom.Document;
 public enum SuiteAttribute {
 
     /**
-     * A DOM Document representation of the test subject or metadata about it.
+     * A client component for interacting with HTTP endpoints.
      */
-    TEST_SUBJECT("testSubject", Document.class);
+    CLIENT("httpClient", Client.class),
+    /**
+     * A DOM Document that represents the test subject or metadata about it.
+     */
+    TEST_SUBJECT("testSubject", Document.class),
+    /**
+     * A File containing the test subject or a description of it.
+     */
+    TEST_SUBJ_FILE("testSubjectFile", File.class);
     private final Class attrType;
     private final String attrName;
 

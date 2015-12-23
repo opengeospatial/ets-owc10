@@ -18,8 +18,11 @@ import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.StartElement;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
+
 import org.apache.xerces.util.XMLCatalogResolver;
+import org.opengis.cite.owc10.Namespaces;
 import org.opengis.cite.validation.SchematronValidator;
+import org.w3c.dom.ls.LSResourceResolver;
 
 /**
  * A utility class that provides convenience methods to support schema
@@ -27,11 +30,32 @@ import org.opengis.cite.validation.SchematronValidator;
  */
 public class ValidationUtils {
 
+    static final String ROOT_PKG = "/org/opengis/cite/owc10/";
     private static final XMLCatalogResolver SCH_RESOLVER = initCatalogResolver();
 
     private static XMLCatalogResolver initCatalogResolver() {
-        URL catalogURL = ValidationUtils.class
-                .getResource("/org/opengis/cite/owc10/schematron-catalog.xml");
+        return (XMLCatalogResolver) createSchemaResolver(Namespaces.SCH);
+    }
+
+    /**
+     * Creates a resource resolver suitable for locating schemas using an entity
+     * catalog. In effect, local copies of standard schemas are returned instead
+     * of retrieving them from external repositories.
+     * 
+     * @param schemaLanguage
+     *            A URI that identifies a schema language by namespace name.
+     * @return A {@code LSResourceResolver} object that is configured to use an
+     *         OASIS entity catalog.
+     */
+    public static LSResourceResolver createSchemaResolver(URI schemaLanguage) {
+        String catalogFileName;
+        if (schemaLanguage.equals(Namespaces.XSD)) {
+            catalogFileName = "schema-catalog.xml";
+        } else {
+            catalogFileName = "schematron-catalog.xml";
+        }
+        URL catalogURL = ValidationUtils.class.getResource(ROOT_PKG
+                + catalogFileName);
         XMLCatalogResolver resolver = new XMLCatalogResolver();
         resolver.setCatalogList(new String[] { catalogURL.toString() });
         return resolver;

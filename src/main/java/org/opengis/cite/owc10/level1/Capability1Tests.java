@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import javax.xml.transform.Source;
 import javax.xml.transform.dom.DOMSource;
+import org.opengis.cite.owc10.CommonFixture;
 import org.opengis.cite.owc10.ErrorMessage;
 import org.opengis.cite.owc10.ErrorMessageKeys;
 import org.opengis.cite.owc10.SuiteAttribute;
@@ -19,7 +20,7 @@ import org.xml.sax.SAXException;
 /**
  * Includes various tests of capability 1.
  */
-public class Capability1Tests {
+public class Capability1Tests extends CommonFixture {
 
     private Document testSubject;
 
