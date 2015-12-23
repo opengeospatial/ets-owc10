@@ -3,11 +3,17 @@
 ### Scope
 
 This test suite checks a representation of a context document for conformance to the 
-"OGC OWS Context Conceptual Model" specification, version 1.0 (OGC 12-080r2). 
-A _context document_ specifies a fully configured service set which can be exchanged 
+_OGC OWS Context Conceptual Model_ specification, version 1.0 (OGC 12-080r2). 
+A __context document__ specifies a fully configured service set which can be exchanged 
 among clients supporting the standard; it was created to allow a set of configured 
 information resources to be passed between applications primarily as a collection 
 of services.
+
+A valid Atom ([RFC 4287](https://tools.ietf.org/html/rfc4287)) representation of a 
+context document must conform to the _OGC OWS Context Atom Encoding Standard_ 
+([OGC 12-084r2](https://portal.opengeospatial.org/files/?artifact_id=55183)). 
+A context document is represented as an Atom feed (media type: application/atom+xml) 
+that contains various extension elements as described in Table 1 of OGC 12-084r2.
 
 Visit the [project documentation website](http://opengeospatial.github.io/ets-owc10/) 
 for more information, including the API documentation.
