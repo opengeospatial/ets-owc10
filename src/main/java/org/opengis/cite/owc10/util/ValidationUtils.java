@@ -49,10 +49,10 @@ public class ValidationUtils {
      */
     public static LSResourceResolver createSchemaResolver(URI schemaLanguage) {
         String catalogFileName;
-        if (schemaLanguage.equals(Namespaces.XSD)) {
-            catalogFileName = "schema-catalog.xml";
-        } else {
+        if (schemaLanguage.equals(Namespaces.SCH)) {
             catalogFileName = "schematron-catalog.xml";
+        } else {
+            catalogFileName = "schema-catalog.xml";
         }
         URL catalogURL = ValidationUtils.class.getResource(ROOT_PKG
                 + catalogFileName);

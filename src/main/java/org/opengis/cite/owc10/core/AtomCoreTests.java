@@ -1,9 +1,11 @@
 package org.opengis.cite.owc10.core;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.util.logging.Level;
 
+import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
 import javax.xml.transform.dom.DOMSource;
 
@@ -15,6 +17,7 @@ import org.opengis.cite.owc10.OWC10;
 import org.opengis.cite.owc10.SuiteAttribute;
 import org.opengis.cite.owc10.util.TestSuiteLogger;
 import org.opengis.cite.owc10.util.URIUtils;
+import org.opengis.cite.owc10.util.ValidationUtils;
 import org.opengis.cite.owc10.util.XMLUtils;
 import org.opengis.cite.validation.RelaxNGValidator;
 import org.opengis.cite.validation.ValidationErrorHandler;
@@ -24,6 +27,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.ls.LSResourceResolver;
 import org.xml.sax.SAXException;
 
 /**
@@ -45,9 +49,10 @@ import org.xml.sax.SAXException;
 public class AtomCoreTests extends CommonFixture {
 
 	private Document contextDoc;
+	private LSResourceResolver resolver;
 
 	@BeforeClass
-	public void parseContext(ITestContext testContext) {
+	public void parseContextFile(ITestContext testContext) {
 		final Object iutRef = testContext.getSuite().getAttribute(
 				SuiteAttribute.TEST_SUBJ_URI.getName());
 		try {
@@ -64,6 +69,12 @@ public class AtomCoreTests extends CommonFixture {
 			logMsg.append(XMLUtils.writeNodeToString(this.contextDoc));
 			TestSuiteLogger.log(Level.FINE, logMsg.toString());
 		}
+	}
+
+	@BeforeClass
+	public void createSchemaResolver() {
+		this.resolver = ValidationUtils.createSchemaResolver(URI
+				.create(XMLConstants.RELAXNG_NS_URI));
 	}
 
 	/**
@@ -95,7 +106,8 @@ public class AtomCoreTests extends CommonFixture {
 	public void atomRules() throws SAXException, IOException {
 		URL schemaRef = getClass().getResource(
 				"/org/opengis/cite/owc10/rnc/owc.rnc");
-		RelaxNGValidator rngValidator = new RelaxNGValidator(schemaRef);
+		RelaxNGValidator rngValidator = new RelaxNGValidator(schemaRef,
+				this.resolver);
 		Source xmlSource = (null != contextDoc) ? new DOMSource(contextDoc)
 				: null;
 		rngValidator.validate(xmlSource);

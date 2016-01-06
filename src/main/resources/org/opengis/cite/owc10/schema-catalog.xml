@@ -17,6 +17,11 @@
     <system systemId="http://schemas.opengis.net/gml/3.2.1/gml.xsd"
       uri="./xsd/opengis/gml/3.2.1/gml-3.2.1.xsd" />
     <uri name="http://www.opengis.net/gml/3.2" uri="./xsd/opengis/gml/3.2.1/gml-3.2.1.xsd" />
+    <system systemId="http://schemas.opengis.net/owc/1.0/owc.rnc" uri="./rnc/owc.rnc" />
+    <system systemId="http://schemas.opengis.net/owc/1.0/georss.rnc" uri="./rnc/georss.rnc" />
+    <system systemId="http://schemas.opengis.net/owc/1.0/atom_feed.rnc" uri="./rnc/atom.rnc" />
+    <system systemId="georss.rnc" uri="./rnc/georss.rnc" />
+    <system systemId="atom.rnc" uri="./rnc/atom.rnc" />
   </group>
   <group id="isotc211.org">
     <system systemId="http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"
@@ -35,6 +40,4 @@
     <uri name="http://www.isotc211.org/2005/gss" uri="./xsd/iso/19139/2007/gss-2007.xsd" />
     <uri name="http://www.isotc211.org/2005/gsr" uri="./xsd/iso/19139/2007/gsr-2007.xsd" />
   </group>
-
-  <nextCatalog catalog="./schematron-catalog.xml" />
 </catalog>
