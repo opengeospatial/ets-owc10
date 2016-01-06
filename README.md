@@ -45,7 +45,7 @@ You can modify the sample file in `src/main/config/test-run-props.xml`
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties version="1.0">
   <comment>Test run arguments</comment>
-  <entry key="iut">http://schemas.opengis.net/gml/3.2.1/gml.xsd</entry>
+  <entry key="iut">http://schemas.opengis.net/owc/1.0/examples/sea_ice_extent_01.atom</entry>
 </properties>
 ```
 
@@ -58,7 +58,7 @@ One of the build artifacts is an "all-in-one" JAR file that includes the test
 suite and all of its dependencies; this makes it very easy to execute the test 
 suite in a command shell:
 
-`java -jar ets-owc10-0.1-SNAPSHOT-aio.jar [-o|--outputDir $TMPDIR] [test-run-props.xml]`
+`java -jar ets-owc10-${version}-aio.jar [-o|--outputDir $TMPDIR] [test-run-props.xml]`
 
 
 ### How to contribute

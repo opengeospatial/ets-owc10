@@ -20,10 +20,10 @@
    <ctl:suite name="tns:ets-owc10-${version}">
      <ctl:title>OWS Context 1.0 Conformance Test Suite</ctl:title>
      <ctl:description>Checks context documents for conformance against the "OGC OWS 
-     Context Conceptual Model" specification, version 1.0 (OGC 12-080r2).</ctl:description>
+     Context Atom Encoding Standard" (OGC 12-084r2).</ctl:description>
      <ctl:starting-test>tns:Main</ctl:starting-test>
    </ctl:suite>
- 
+
    <ctl:test name="tns:Main">
       <ctl:assertion>The test subject satisfies all applicable constraints.</ctl:assertion>
 	  <ctl:code>
@@ -31,16 +31,12 @@
            <ctl:form method="POST" width="800" height="600" xmlns="http://www.w3.org/1999/xhtml">
              <h2>OWS Context 1.0 Conformance Test Suite</h2>
              <div style="background:#F0F8FF" bgcolor="#F0F8FF">
-               <p>The implementation under test (IUT) is checked against the following specifications:</p>
+               <p>The instance under test (IUT) is checked against the following specifications:</p>
                <ul>
-                 <li><a href="http://www.w3.org/TR/xml/">Extensible Markup Language (XML) 1.0</a>, 
-				 Fifth Edition</li>
-				 <li><a href="http://www.w3.org/TR/xmlbase/">XML Base</a>, Second Edition</li>
-               </ul>
-               <p>Two conformance levels are defined:</p>
-               <ul>
-                 <li>Level 1</li>
-                 <li>Level 2</li>
+                 <li><a href="https://portal.opengeospatial.org/files/?artifact_id=55183">OGC 
+                 OWS Context Atom Encoding Standard</a>, Version 1.0 (OGC 12-084r2)</li>
+                 <li><a href="https://portal.opengeospatial.org/files/?artifact_id=55182">OGC 
+                 OWS Context Conceptual Model</a>, Version 1.0 (OGC 12-080r2)</li>
                </ul>
              </div>
              <fieldset style="background:#ccffff">
@@ -51,7 +47,8 @@
                  <label for="uri">
                    <h4 style="margin-bottom: 0.5em">Location of IUT (absolute http: or file: URI)</h4>
                  </label>
-                 <input id="uri" name="uri" size="128" type="text" value="http://www.w3schools.com/xml/note.xml" />
+                 <input id="uri" name="uri" size="128" type="text" 
+                        value="http://schemas.opengis.net/owc/1.0/examples/sea_ice_extent_01.atom" />
                </p>
                <p>
                  <label for="doc">
@@ -61,10 +58,12 @@
                </p>
                <p>
                  <label for="level">Conformance class: </label>
-                 <input id="level-1" type="radio" name="level" value="1" checked="checked" />
-                 <label for="level-1"> Level 1 | </label>
+                 <input id="core" type="radio" name="level" value="core" checked="checked" />
+                 <label for="core"> Core | </label>
+                 <!--
                  <input id="level-2" type="radio" name="level" value="2" />
                  <label class="form-label" for="level-2"> Level 2</label>
+                 -->
                </p>
              </fieldset>
              <p>

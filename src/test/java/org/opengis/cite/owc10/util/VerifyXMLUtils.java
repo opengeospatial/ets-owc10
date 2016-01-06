@@ -3,16 +3,18 @@ package org.opengis.cite.owc10.util;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.xpath.XPathExpressionException;
-import junit.framework.Assert;
+
 import net.sf.saxon.s9api.SaxonApiException;
 import net.sf.saxon.s9api.XdmValue;
 import net.sf.saxon.trans.XPathException;
 
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -45,7 +47,7 @@ public class VerifyXMLUtils {
         Document doc = docBuilder.parse(this.getClass().getResourceAsStream(
                 "/atom-feed.xml"));
         String content = XMLUtils.writeNodeToString(doc);
-        Assert.assertTrue("String should start with '<feed'",
+		Assert.assertTrue("String should start with '<feed'",
                 content.startsWith("<feed"));
     }
 

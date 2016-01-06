@@ -55,7 +55,7 @@ public class VerifyTestNGController {
     @Test
     @Ignore("No tests defined yet")
     public void doTestRun() throws Exception {
-        URL testSubject = getClass().getResource("/atom-feed-2.xml");
+        URL testSubject = getClass().getResource("/atom/sea_ice_extent_01.xml");
         this.testRunProps.setProperty(TestRunArg.IUT.toString(), testSubject
                 .toURI().toString());
         ByteArrayOutputStream outStream = new ByteArrayOutputStream(1024);
