@@ -2,8 +2,8 @@
 
 ### Scope
 
-This test suite checks a representation of a context document for conformance to the 
-_OGC OWS Context Conceptual Model_ specification, version 1.0 (OGC 12-080r2). 
+This test suite checks a representation of a context document for conformance 
+to the _OGC OWS Context Conceptual Model_ specification, version 1.0 (OGC 12-080r2). 
 A __context document__ specifies a fully configured service set which can be exchanged 
 among clients supporting the standard; it was created to allow a set of configured 
 information resources to be passed between applications primarily as a collection 
@@ -65,9 +65,9 @@ suite in a command shell:
 
 If you would like to get involved, you can:
 
-* [Report an issue](https://github.com/opengeospatial/ets-cat30/issues) such as a defect or 
+* [Report an issue](https://github.com/opengeospatial/ets-owc10/issues) such as a defect or 
 an enhancement request
-* Help to resolve an [open issue](https://github.com/opengeospatial/ets-cat30/issues?q=is%3Aopen)
+* Help to resolve an [open issue](https://github.com/opengeospatial/ets-owc10/issues?q=is%3Aopen)
 * Fix a bug: Fork the repository, apply the fix, and create a pull request
 * Add new tests: Fork the repository, implement and verify the tests on a new topic branch, 
 and create a pull request (don't forget to periodically rebase long-lived branches so 

@@ -3,40 +3,40 @@
 
 ## Scope
 
-This executable test suite (ETS) verifies the conformance of the implementation 
-under test (IUT) with respect to the set of relevant specifications depicted in 
-Figure 1. Conformance testing is a kind of "black box" testing that examines the 
-externally visible characteristics or behaviors of the IUT while disregarding 
-any implementation details.
+This executable test suite (ETS) validates OWS context documents in accord 
+with the _OGC OWS Context Atom Encoding Standard_ ([OGC 12-084r2](http://docs.opengeospatial.org/is/12-084r2/12-084r2.html)) 
+and related specifications. Various conformance classes have been defined as shown 
+in Figure 1.
 
-**Figure 1: Relevant specifications**
+**Figure 1: Conformance classes**
 
-![Set of relevant specifications](img/specifications.png)
+![Conformance classes](img/owc-conformance.png)
 
-Several conformance classes are defined in the principal specifications; the ones 
-listed below are covered by this test suite:
+The conformance classes listed below are partially covered by this test suite:
 
-* Class A 
-    - List capabilities of conformance class A
-* Class B 
-    - List capabilities of conformance class B
+* **Atom Core** 
+    - Requirement: `http://www.opengis.net/spec/owc-atom/1.0/req/core`
+    - Requirement: `http://www.opengis.net/spec/owc-atom/1.0/req/atomRules`
+    - Requirement: `http://www.opengis.net/spec/owc-atom/1.0/req/owcEncoding`
+* **Atom WMS** 
+    - Requirement: `http://www.opengis.net/spec/owc-atom/1.0/req/wms/content`
 
-
+    
 ## Test requirements
 
 The documents listed below stipulate requirements that must be satisfied by a 
-conforming implementation.
+conforming instance.
 
-1. [Web Content Accessibility Guidelines (WCAG) 2.0](http://www.w3.org/TR/WCAG20/)
-2. [Extensible Markup Language (XML) 1.0, Fifth Edition](http://www.w3.org/TR/xml/)
-3. [RFC 7231](https://tools.ietf.org/html/rfc7231) - Hypertext Transfer Protocol 
-(HTTP/1.1): Semantics and Content 
+1. [OGC 12-084r2](http://docs.opengeospatial.org/is/12-084r2/12-084r2.html): 
+OGC OWS Context Atom Encoding Standard 
+2. [OGC 12-080r2](https://portal.opengeospatial.org/files/?artifact_id=55182): 
+OGC OWS Context Conceptual Model
+3. [RFC 4287](http://tools.ietf.org/html/rfc4287): The Atom Syndication Format
 
 If any of the following preconditions are not satisfied then all tests in the 
 suite will be marked as skipped.
 
-1. Precondition 1;
-2. Precondition 2.
+* The context document is an Atom feed
 
 
 ## Test suite structure

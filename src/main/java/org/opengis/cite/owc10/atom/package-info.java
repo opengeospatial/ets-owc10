@@ -1,7 +1,7 @@
 /**
- * This package contains tests covering the <strong>Atom Core</strong> conformance
- * class. The general constraints are described in clause 7.2 of the Core 
- * Conceptual Model; they apply to the following elements:
+ * This package contains tests pertaining to Atom representations of OWS 
+ * context documents. The general constraints are described in clause 7.2 
+ * of the Core Conceptual Model; they apply to the following elements:
  * 
  * <ul>
  * <li>Context</li>
@@ -24,9 +24,9 @@
  * <strong>Sources</strong>
  * </p>
  * <ul>
- * <li><a href="https://portal.opengeospatial.org/files/?artifact_id=55183" 
+ * <li><a href="http://docs.opengeospatial.org/is/12-084r2/12-084r2.html" 
  * target="_blank">OGC 12-084r2</a>: <em>OGC OWS Context Atom Encoding 
- * Standard 1.0</em>
+ * Standard, Version 1.0</em>
  * </li>
  * <li><a href="https://portal.opengeospatial.org/files/?artifact_id=55182" 
  * target="_blank">OGC 12-080r2</a>: <em>OGC OWS Context Conceptual Model 1.0</em>
@@ -34,4 +34,3 @@
  * </ul>
  */
 package org.opengis.cite.owc10.atom;
-
