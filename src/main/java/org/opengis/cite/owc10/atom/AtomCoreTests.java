@@ -1,4 +1,4 @@
-package org.opengis.cite.owc10.core;
+package org.opengis.cite.owc10.atom;
 
 import java.io.IOException;
 import java.net.URI;

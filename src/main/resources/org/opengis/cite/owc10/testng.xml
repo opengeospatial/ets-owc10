@@ -9,9 +9,9 @@
     <listener class-name="org.opengis.cite.owc10.TestFailureListener" />
   </listeners>
 
-  <test name="Core">
+  <test name="Atom Core">
     <packages>
-      <package name="org.opengis.cite.owc10.core" />
+      <package name="org.opengis.cite.owc10.atom" />
     </packages>
   </test>
 </suite>
