@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Date-Revision-yyyymmdd" content="20160217" />
     <meta http-equiv="Content-Language" content="en" />
-    <title>OWS Context 1.0 Conformance Test Suite &#x2013; OWS Context 1.0 Conformance Test Suite</title>
+    <title>OWS Context 1.0 Conformance Test Suite &#x2013; Project License</title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-1.4.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -66,10 +66,12 @@
                 <ul class="nav nav-list">
                     <li class="nav-header">Getting Started</li>
                               
-      <li class="active">
+      <li>
   
-            <a href="#"><span class="none"></span>Overview</a>
-          </li>
+                          <a href="index.html" title="Overview">
+          <span class="none"></span>
+        Overview</a>
+            </li>
                 
       <li>
   
@@ -78,13 +80,27 @@
         Release Notes</a>
             </li>
                               <li class="nav-header">Project Documentation</li>
-                                                                                                  
+                                                                                                            
       <li>
   
                           <a href="project-info.html" title="Project Information">
-          <span class="icon-chevron-right"></span>
+          <span class="icon-chevron-down"></span>
         Project Information</a>
-                  </li>
+                    <ul class="nav nav-list">
+                    
+      <li class="active">
+  
+            <a href="#"><span class="none"></span>Project License</a>
+          </li>
+                    
+      <li>
+  
+                          <a href="issue-tracking.html" title="Issue Tracking">
+          <span class="none"></span>
+        Issue Tracking</a>
+            </li>
+              </ul>
+        </li>
                                                                   
       <li>
   
@@ -112,121 +128,17 @@
         
                 
         <div id="bodyColumn"  class="span10" >
-                                  
-            <h1>OWS Context 1.0 Conformance Test Suite</h1>
+                      <div class="section">
+<h2><a name="Overview"></a>Overview</h2><a name="Overview"></a>
+<p>Typically the licenses listed for the project are that of the project itself, and not of dependencies.</p></div>
 <div class="section">
-<h2><a name="Scope"></a>Scope</h2>
-<p>This executable test suite (ETS) validates OWS context documents in accord with the <i>OGC OWS Context Atom Encoding Standard</i> (<a class="externalLink" href="http://docs.opengeospatial.org/is/12-084r2/12-084r2.html">OGC 12-084r2</a>) and related specifications. Various conformance classes have been defined as shown in Figure 1.</p>
-<p><b>Figure 1: Conformance classes</b></p>
-<p><img src="img/owc-conformance.png" alt="Conformance classes" /></p>
-<p>The conformance classes listed below are partially covered by this test suite:</p>
-
-<ul>
-  
-<li><b>Atom Core</b>
-  
-<ul>
-    
-<li>Requirement: <tt>http://www.opengis.net/spec/owc-atom/1.0/req/core</tt></li>
-    
-<li>Requirement: <tt>http://www.opengis.net/spec/owc-atom/1.0/req/atomRules</tt></li>
-    
-<li>Requirement: <tt>http://www.opengis.net/spec/owc-atom/1.0/req/owcEncoding</tt></li>
-  </ul></li>
-  
-<li>
-<p><b>Atom WMS</b></p>
-  
-<ul>
-    
-<li>Requirement: <tt>http://www.opengis.net/spec/owc-atom/1.0/req/wms/content</tt></li>
-  </ul></div>
+<h2><a name="Project_License"></a>Project License</h2><a name="Project_License"></a>
 <div class="section">
-<h2><a name="Test_requirements"></a>Test requirements</h2></li>
-</ul>
-<p>The documents listed below stipulate requirements that must be satisfied by a conforming instance.</p>
-
-<ol style="list-style-type: decimal">
-  
-<li><a class="externalLink" href="http://docs.opengeospatial.org/is/12-084r2/12-084r2.html">OGC 12-084r2</a>: OGC OWS Context Atom Encoding Standard</li>
-  
-<li><a class="externalLink" href="https://portal.opengeospatial.org/files/?artifact_id=55182">OGC 12-080r2</a>: OGC OWS Context Conceptual Model</li>
-  
-<li><a class="externalLink" href="http://tools.ietf.org/html/rfc4287">RFC 4287</a>: The Atom Syndication Format</li>
-</ol>
-<p>If any of the following preconditions are not satisfied then all tests in the suite will be marked as skipped.</p>
-
-<ul>
-  
-<li>The context document is an Atom feed</li>
-</ul></div>
-<div class="section">
-<h2><a name="Test_suite_structure"></a>Test suite structure</h2>
-<p>The test suite definition file (testng.xml) is located in the root package, <tt>org.opengis.cite.owc10</tt>. A conformance class corresponds to a &lt;test&gt; element, each of which includes a set of test classes that contain the actual test methods. The general structure of the test suite is shown in Table 1.</p>
-
-<table border="0" class="table table-striped"><caption>Table 1 - Test suite structure</caption>
-  
-  <thead>
-    
-<tr class="a" style="text-align: left; background-color: LightCyan">
-      
-<th>Conformance class</th>
-      
-<th>Test classes</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-<tr class="b">
-      
-<td>Atom Core</td>
-      
-<td>org.opengis.cite.owc10.atom.AtomCoreTests</td>
-    </tr>
-    
-<tr class="a">
-      
-<td>Atom WMS</td>
-      
-<td>org.opengis.cite.owc10.atom.AtomWmsTests</td>
-    </tr>
-  </tbody>
-</table>
-<p>The Javadoc documentation provides more detailed information about the test methods that constitute the suite.</p></div>
-<div class="section">
-<h2><a name="Test_run_arguments"></a>Test run arguments</h2>
-<p>The test run arguments are summarized in Table 2. The <i>Obligation</i> descriptor can have the following values: M (mandatory), O (optional), or C (conditional).</p>
-
-<table border="0" class="table table-striped"><caption>Table 2 - Test run arguments</caption>
-	
-	<thead>
-    
-<tr class="a">
-      
-<th>Name</th>
-      
-<th>Value domain</th>
-	    
-<th>Obligation</th>
-	    
-<th>Description</th>
-    </tr>
-  </thead>
-	<tbody>
-    
-<tr class="b">
-      
-<td>iut</td>
-      
-<td>URI</td>
-      
-<td>M</td>
-      
-<td>A URI that refers to a representation of an OWS context document.
-    Ampersand ('&amp;') characters must be percent-encoded as '%26'.</td>
-    </tr>
-	</tbody>
-</table></div>
+<h3><a name="Apache_License_Version_2.0"></a>Apache License, Version 2.0</h3><a name="Apache_License_Version_2.0"></a><a class="externalLink" href="http://opensource.org/licenses/Apache-2.0">[Original text]</a>
+<p>Copy of the license follows:</p>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="https://opensource.org/licenses/Apache-2.0">here</a>.</p>
+</div></div>
                   </div>
             </div>
           </div>
