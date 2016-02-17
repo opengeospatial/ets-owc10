@@ -56,15 +56,6 @@
                  </label>
                  <input name="doc" id="doc" size="128" type="file" />
                </p>
-               <p>
-                 <label for="level">Conformance class: </label>
-                 <input id="core" type="radio" name="level" value="core" checked="checked" />
-                 <label for="core"> Core | </label>
-                 <!--
-                 <input id="level-2" type="radio" name="level" value="2" />
-                 <label class="form-label" for="level-2"> Level 2</label>
-                 -->
-               </p>
              </fieldset>
              <p>
                <input class="form-button" type="submit" value="Start"/> | 
@@ -85,7 +76,6 @@
               </xsl:otherwise>
             </xsl:choose>
           </entry>
-          <entry key="ics"><xsl:value-of select="$form-data/values/value[@key='level']"/></entry>
 		    </properties>
 		   </xsl:variable>
        <xsl:variable name="testRunDir">
