@@ -5,5 +5,6 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
 
   <system systemId="owc-atom.sch" uri="./sch/owc-atom.sch" />
+  <system systemId="owc-atom-ext.sch" uri="./sch/owc-atom-ext.sch" />
 
 </catalog>

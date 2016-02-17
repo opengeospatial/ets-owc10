@@ -13,6 +13,8 @@ public class Namespaces {
 	private Namespaces() {
 	}
 
+	/** OGC 12-084r2 (OWC 1.0) */
+	public static final String OWC = "http://www.opengis.net/owc/1.0";
 	/** Atom Syndication Format (RFC 4287). */
 	public static final String ATOM = "http://www.w3.org/2005/Atom";
 	/** SOAP 1.2 message envelopes. */

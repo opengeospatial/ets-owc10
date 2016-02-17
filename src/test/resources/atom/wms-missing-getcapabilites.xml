@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
+<!-- ERROR: WMS offering is missing GetCapabilities operation -->
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" 
 	xmlns:owc="http://www.opengis.net/owc/1.0" xml:lang="en">
   <link rel="profile"
@@ -84,7 +85,6 @@
 	&lt;p style='font-size:small'&gt;OGC Context CITE Testing XSLT (Extensible Stylesheet Language Transformations) by Terradue Srl.&lt;/p&gt;
 	</content>
     <owc:offering code="http://www.opengis.net/spec/owc-atom/1.0/req/wms">
-      <owc:operation method="GET" code="GetCapabilities" href="http://ows.genesi-dec.eu/geoserver/385d7d71-650a-414b-b8c7-739e2c0b5e76/wms?SERVICE=WMS&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetCapabilitiesVERSION=1.3.0&amp;REQUEST=GetCapabilities"/>
       <owc:operation method="GET" code="GetMap" href="http://ows.genesi-dec.eu/geoserver/385d7d71-650a-414b-b8c7-739e2c0b5e76/wms?SERVICE=WMS&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;BBOX=-2,45,8,55SRS=EPSG:4326&amp;WIDTH=500&amp;HEIGHT=500&amp;LAYERS=385d7d71-650a-414b-b8c7-739e2c0b5e76:MER_RR__2PRLRA20120406_102429_000026213113_00238_52838_0211.N1.tif&amp;FORMAT=image/png&amp;BGCOLOR=0xffffff&amp;TRANSPARENT=TRUE&amp;EXCEPTIONS=application/vnd.ogc.se_xml"/>
       <owc:styleSet>
         <owc:name>raster</owc:name>

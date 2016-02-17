@@ -80,7 +80,7 @@ public class AtomCoreTests extends CommonFixture {
 	 * [{@code Test}] The atom:feed element shall be used in OWS Context to
 	 * describe the context file.
 	 */
-	@Test(description = "OGC 12-084r2: 6.2")
+	@Test(description = "Req: http://www.opengis.net/spec/owc-atom/1.0/req/core")
 	public void isAtomFeed() {
 		Element docElem = this.contextDoc.getDocumentElement();
 		ETSAssert.assertQualifiedName(docElem, OWC10.ATOM_FEED);
@@ -101,7 +101,7 @@ public class AtomCoreTests extends CommonFixture {
 	 *      "_blank">RELAX NG Compact Syntax Grammar for OGC Context Atom
 	 *      Encoding</a>
 	 */
-	@Test(description = "OGC 12-084r2: http://www.opengis.net/spec/owc-atom/1.0/req/atomRules")
+	@Test(description = "Req: http://www.opengis.net/spec/owc-atom/1.0/req/atomRules")
 	public void assessSchemaValidity() throws SAXException, IOException {
 		URL schemaRef = getClass().getResource(
 				"/org/opengis/cite/owc10/rnc/owc.rnc");
@@ -128,7 +128,7 @@ public class AtomCoreTests extends CommonFixture {
 	 * @see <a href="http://tools.ietf.org/html/rfc4287#appendix-B" target=
 	 *      "_blank">RFC 4287, Appendix B: RELAX NG Compact Schema</a>
 	 */
-	@Test(description = "OGC 12-084r2: http://www.opengis.net/spec/owc-atom/1.0/req/atomRules")
+	@Test(description = "Req: http://www.opengis.net/spec/owc-atom/1.0/req/owcEncoding")
 	public void checkSchematronRules() {
 		if (null == contextDoc) {
 			Assert.fail("No context document.");

@@ -56,12 +56,12 @@ The general structure of the test suite is shown in Table 1.
   </thead>
   <tbody>
     <tr>
-      <td>Conformance Level 1</td>
-      <td>org.opengis.cite.owc10.level1.*</td>
+      <td>Atom Core</td>
+      <td>org.opengis.cite.owc10.atom.AtomCoreTests</td>
     </tr>
     <tr>
-      <td>Conformance Level 2</td>
-      <td>org.opengis.cite.owc10.level2.*</td>
+      <td>Atom WMS</td>
+      <td>org.opengis.cite.owc10.atom.AtomWmsTests</td>
     </tr>
   </tbody>
 </table>
@@ -90,15 +90,8 @@ have the following values: M (mandatory), O (optional), or C (conditional).
       <td>iut</td>
       <td>URI</td>
       <td>M</td>
-      <td>A URI that refers to the implementation under test or metadata about it.
+      <td>A URI that refers to a representation of an OWS context document.
     Ampersand ('&amp;') characters must be percent-encoded as '%26'.</td>
-    </tr>
-	  <tr>
-      <td>ics</td>
-      <td>A comma-separated list of string values.</td>
-      <td>O</td>
-      <td>An implementation conformance statement that indicates which conformance 
-      classes or options are supported.</td>
     </tr>
 	</tbody>
 </table>
