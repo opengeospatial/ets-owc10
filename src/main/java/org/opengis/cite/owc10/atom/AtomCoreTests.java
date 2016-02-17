@@ -39,9 +39,9 @@ import org.xml.sax.SAXException;
  * <strong>Sources</strong>
  * </p>
  * <ul>
- * <li><a href="https://portal.opengeospatial.org/files/?artifact_id=55183"
+ * <li><a href="http://docs.opengeospatial.org/is/12-084r2/12-084r2.html"
  * target="_blank">OGC 12-084r2</a>: <em>OGC OWS Context Atom Encoding 
- * Standard 1.0</em></li>
+ * Standard, Version 1.0</em></li>
  * <li><a href="https://tools.ietf.org/html/rfc4287" target="_blank">The Atom
  * Syndication Format</a> (RFC 4287)</li>
  * </ul>
@@ -52,9 +52,12 @@ public class AtomCoreTests extends CommonFixture {
 	private LSResourceResolver resolver;
 
 	@BeforeClass
-	public void parseContextFile(ITestContext testContext) {
-		final Object iutRef = testContext.getSuite().getAttribute(
+	public void initFixture(ITestContext testContext) {
+		Object iutRef = testContext.getSuite().getAttribute(
 				SuiteAttribute.TEST_SUBJ_URI.getName());
+		if (null == iutRef) {
+			iutRef = this.contextFile.toURI();
+		}
 		try {
 			this.contextDoc = URIUtils.parseURI(this.contextFile.toURI());
 			this.contextDoc.setDocumentURI(iutRef.toString());
@@ -62,6 +65,8 @@ public class AtomCoreTests extends CommonFixture {
 			throw new RuntimeException(
 					"Failed to parse resource retrieved from " + iutRef, x);
 		}
+		this.resolver = ValidationUtils.createSchemaResolver(URI
+				.create(XMLConstants.RELAXNG_NS_URI));
 		if (TestSuiteLogger.isLoggable(Level.FINE)) {
 			StringBuilder logMsg = new StringBuilder(
 					"Parsed resource retrieved from ");
@@ -71,26 +76,20 @@ public class AtomCoreTests extends CommonFixture {
 		}
 	}
 
-	@BeforeClass
-	public void createSchemaResolver() {
-		this.resolver = ValidationUtils.createSchemaResolver(URI
-				.create(XMLConstants.RELAXNG_NS_URI));
-	}
-
 	/**
-	 * The atom:feed element shall be used in OWS Context to describe the
-	 * context file.
+	 * [{@code Test}] The atom:feed element shall be used in OWS Context to
+	 * describe the context file.
 	 */
 	@Test(description = "OGC 12-084r2: 6.2")
-	public void atomFeed() {
+	public void isAtomFeed() {
 		Element docElem = this.contextDoc.getDocumentElement();
 		ETSAssert.assertQualifiedName(docElem, OWC10.ATOM_FEED);
 	}
 
 	/**
-	 * The Atom feed is schema-valid. Note that the (informative) RELAX NG
-	 * grammar given in Appendix B of RFC 4287 accepts either a feed or an entry
-	 * as the starting element.
+	 * [{@code Test}] The Atom feed is schema-valid. Note that the (informative)
+	 * RELAX NG grammar given in Appendix B of RFC 4287 accepts either a feed or
+	 * an entry as the starting element.
 	 * 
 	 * @throws IOException
 	 *             If an I/O error occurs while attempting to read a schema
@@ -103,7 +102,7 @@ public class AtomCoreTests extends CommonFixture {
 	 *      Encoding</a>
 	 */
 	@Test(description = "OGC 12-084r2: http://www.opengis.net/spec/owc-atom/1.0/req/atomRules")
-	public void atomRules() throws SAXException, IOException {
+	public void assessSchemaValidity() throws SAXException, IOException {
 		URL schemaRef = getClass().getResource(
 				"/org/opengis/cite/owc10/rnc/owc.rnc");
 		RelaxNGValidator rngValidator = new RelaxNGValidator(schemaRef,
@@ -116,5 +115,27 @@ public class AtomCoreTests extends CommonFixture {
 				err.errorsDetected(),
 				ErrorMessage.format(ErrorMessageKeys.NOT_SCHEMA_VALID,
 						err.getErrorCount(), err.toString()));
+	}
+
+	/**
+	 * [{@code Test}] Checks that Schematron constraints are satisfied. Several
+	 * general rules are embedded in the RELAX NG grammars; these have been
+	 * extracted into a separate schema (owc-atom.sch).
+	 * 
+	 * @see <a href="http://schemas.opengis.net/owc/1.0/owc.rnc" target=
+	 *      "_blank">RELAX NG Compact Syntax Grammar for OGC Context Atom
+	 *      Encoding</a>
+	 * @see <a href="http://tools.ietf.org/html/rfc4287#appendix-B" target=
+	 *      "_blank">RFC 4287, Appendix B: RELAX NG Compact Schema</a>
+	 */
+	@Test(description = "OGC 12-084r2: http://www.opengis.net/spec/owc-atom/1.0/req/atomRules")
+	public void checkSchematronRules() {
+		if (null == contextDoc) {
+			Assert.fail("No context document.");
+		}
+		Source source = new DOMSource(contextDoc);
+		URL schemaUrl = getClass().getResource(
+				ROOT_PKG_PATH + "sch/owc-atom.sch");
+		ETSAssert.assertSchematronValid(schemaUrl, source, null);
 	}
 }

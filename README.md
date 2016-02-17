@@ -11,9 +11,9 @@ of services.
 
 A valid Atom ([RFC 4287](https://tools.ietf.org/html/rfc4287)) representation of a 
 context document must conform to the _OGC OWS Context Atom Encoding Standard_ 
-([OGC 12-084r2](https://portal.opengeospatial.org/files/?artifact_id=55183)). 
+([OGC 12-084r2](http://docs.opengeospatial.org/is/12-084r2/12-084r2.html)). 
 A context document is represented as an Atom feed (media type: application/atom+xml) 
-that contains various extension elements as described in Table 1 of OGC 12-084r2.
+that contains various extension elements as described in OGC 12-084r2.
 
 Visit the [project documentation website](http://opengeospatial.github.io/ets-owc10/) 
 for more information, including the API documentation.

@@ -51,4 +51,18 @@ public class CommonFixture {
 
 	}
 
+	/**
+	 * Sets the location of the context document if not already set. This method
+	 * is solely intended to facilitate unit testing.
+	 * 
+	 * @param file
+	 *            A File object containing a representation of a context
+	 *            document.
+	 */
+	public void setContextDocument(File file) {
+		if (null == contextFile) {
+			this.contextFile = file;
+		}
+	}
+
 }
