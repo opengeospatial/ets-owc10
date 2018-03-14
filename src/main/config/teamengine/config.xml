@@ -13,10 +13,10 @@
         <title>OWS Context Conformance Test Suite</title>
         <description>Checks context documents for conformance against the "OGC OWS 
         Context Conceptual Model", version 1.0 (OGC 12-080r2).</description>
+        <BasicConformanceClasses>
+          <conformanceClass>Atom Core</conformanceClass>
+        </BasicConformanceClasses>
       </suite>
-      <BasicConformanceClasses>
-        <conformanceClass>Atom Core</conformanceClass>
-      </BasicConformanceClasses>
       <revision>
         <name>${version}</name>
         <status>Beta</status>
