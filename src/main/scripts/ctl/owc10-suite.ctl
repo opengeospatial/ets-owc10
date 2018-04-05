@@ -6,7 +6,7 @@
   xmlns:tec="java:com.occamlab.te.TECore"
   xmlns:tng="java:org.opengis.cite.owc10.TestNGController">
 
-  <ctl:function name="tns:run-ets-owc10">
+  <ctl:function name="tns:run-ets-${ets-code}">
 		<ctl:param name="testRunArgs">A Document node containing test run arguments (as XML properties).</ctl:param>
     <ctl:param name="outputDir">The directory in which the test results will be written.</ctl:param>
 		<ctl:return>The test results as a Source object (root node).</ctl:return>
@@ -17,7 +17,7 @@
     </ctl:code>
 	</ctl:function>
 
-   <ctl:suite name="tns:ets-owc10-${version}">
+   <ctl:suite name="tns:ets-${ets-code}-${version}">
      <ctl:title>OWS Context 1.0 Conformance Test Suite</ctl:title>
      <ctl:description>Checks context documents for conformance against the "OGC OWS 
      Context Atom Encoding Standard" (OGC 12-084r2).</ctl:description>
@@ -82,7 +82,7 @@
          <xsl:value-of select="tec:getTestRunDirectory($te:core)"/>
        </xsl:variable>
        <xsl:variable name="test-results">
-        <ctl:call-function name="tns:run-ets-owc10">
+        <ctl:call-function name="tns:run-ets-${ets-code}">
 			    <ctl:with-param name="testRunArgs" select="$test-run-props"/>
           <ctl:with-param name="outputDir" select="$testRunDir" />
 			  </ctl:call-function>
