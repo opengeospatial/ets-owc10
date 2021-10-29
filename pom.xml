@@ -7,7 +7,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>ets-owc10</artifactId>
-  <version>0.2</version>
+  <version>0.3-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>OWS Context 1.0 Conformance Test Suite</name>
@@ -29,7 +29,7 @@
     <connection>scm:git:https://github.com/opengeospatial/ets-owc10.git</connection>
     <developerConnection>scm:git:git@github.com:opengeospatial/ets-owc10.git</developerConnection>
     <url>https://github.com/opengeospatial/ets-owc10</url>
-    <tag>0.2</tag>
+    <tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>GitHub Issue Tracker</system>
