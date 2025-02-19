@@ -48,7 +48,7 @@
                    <h4 style="margin-bottom: 0.5em">Location of IUT (absolute http: or file: URI)</h4>
                  </label>
                  <input id="uri" name="uri" size="128" type="text" 
-                        value="http://schemas.opengis.net/owc/1.0/examples/sea_ice_extent_01.atom" />
+                        value="https://schemas.opengis.net/owc/1.0/examples/sea_ice_extent_01.atom" />
                </p>
                <p>
                  <label for="doc">
