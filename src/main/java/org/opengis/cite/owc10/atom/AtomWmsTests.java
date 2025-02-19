@@ -6,9 +6,6 @@ import java.util.Collections;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 
-import net.sf.saxon.s9api.SaxonApiException;
-import net.sf.saxon.s9api.XdmValue;
-
 import org.opengis.cite.owc10.CommonFixture;
 import org.opengis.cite.owc10.ETSAssert;
 import org.opengis.cite.owc10.Namespaces;
@@ -17,6 +14,9 @@ import org.opengis.cite.owc10.util.XMLUtils;
 import org.testng.SkipException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import net.sf.saxon.s9api.SaxonApiException;
+import net.sf.saxon.s9api.XdmValue;
 
 /**
  * Defines test methods that apply to an Atom (RFC 4287) representation of a context
