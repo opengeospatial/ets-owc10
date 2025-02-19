@@ -5,7 +5,7 @@ import java.io.File;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 
-import com.sun.jersey.api.client.Client;
+import jakarta.ws.rs.client.Client;
 
 /**
  * A supporting base class that sets up a common test fixture. These
