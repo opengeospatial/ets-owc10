@@ -22,6 +22,7 @@ import org.testng.xml.XmlSuite;
 public class VerifySuiteFixtureListener {
 
 	private static XmlSuite xmlSuite;
+
 	private static ISuite suite;
 
 	public VerifySuiteFixtureListener() {
@@ -62,8 +63,7 @@ public class VerifySuiteFixtureListener {
 		when(xmlSuite.getParameters()).thenReturn(params);
 		SuiteFixtureListener iut = new SuiteFixtureListener();
 		iut.onStart(suite);
-		verify(suite).setAttribute(
-				ArgumentMatchers.eq(SuiteAttribute.TEST_SUBJ_FILE.getName()),
+		verify(suite).setAttribute(ArgumentMatchers.eq(SuiteAttribute.TEST_SUBJ_FILE.getName()),
 				ArgumentMatchers.isA(File.class));
 	}
 

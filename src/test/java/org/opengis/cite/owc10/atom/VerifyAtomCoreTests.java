@@ -23,7 +23,9 @@ public class VerifyAtomCoreTests {
 
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
+
 	private static ITestContext testContext;
+
 	private static ISuite suite;
 
 	@BeforeClass
@@ -34,8 +36,7 @@ public class VerifyAtomCoreTests {
 	}
 
 	@Test
-	public void feedNotSchemaValid() throws URISyntaxException, SAXException,
-			IOException {
+	public void feedNotSchemaValid() throws URISyntaxException, SAXException, IOException {
 		thrown.expect(AssertionError.class);
 		thrown.expectMessage("1 schema validation error(s) detected");
 		URL fileUrl = getClass().getResource("/atom-feed-2.xml");
@@ -55,4 +56,5 @@ public class VerifyAtomCoreTests {
 		iut.initFixture(testContext);
 		iut.checkSchematronRules();
 	}
+
 }
