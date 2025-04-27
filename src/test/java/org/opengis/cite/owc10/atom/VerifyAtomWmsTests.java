@@ -21,7 +21,9 @@ public class VerifyAtomWmsTests {
 
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
+
 	private static ITestContext testContext;
+
 	private static ISuite suite;
 
 	@BeforeClass
@@ -35,10 +37,10 @@ public class VerifyAtomWmsTests {
 	public void missingGetCapabilities() throws URISyntaxException {
 		thrown.expect(AssertionError.class);
 		thrown.expectMessage("WMS offering is missing GetCapabilities operation");
-		URL fileUrl = getClass().getResource(
-				"/atom/wms-missing-getcapabilites.xml");
+		URL fileUrl = getClass().getResource("/atom/wms-missing-getcapabilites.xml");
 		AtomWmsTests iut = new AtomWmsTests();
 		iut.setContextDocument(new File(fileUrl.toURI()));
 		iut.checkSchematronRulesForWmsOfferings();
 	}
+
 }
